@@ -46,8 +46,8 @@ def start():
     config = {
         "license": license_key,
         "target": {
-            "docker": {
-                "image": "composabl/sim-demo-discrete:latest"
+            "local": {
+                "address": "localhost:1337"
             }
         },
         "env": {

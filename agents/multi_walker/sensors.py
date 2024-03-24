@@ -1,0 +1,115 @@
+from composabl import Sensor
+
+sensors_walker_0 = [
+    Sensor("hull_angle_walker_0", "hull_angle", lambda obs: obs[0][0]),
+    Sensor("hull_angular_velocity_walker_0", "hull angular velocity", lambda obs: obs[0][1]),
+    Sensor("x_vel_walker_0", "X velocity_walker_0", lambda obs: obs[0][2]),
+    Sensor("y_vel_walker_0", "Y velocity_walker_0", lambda obs: obs[0][3]),
+    Sensor("hip_joint_1_angle_walker_0", "Hip Joint 1 Angle", lambda obs: obs[0][4]),
+    Sensor("hip_joint_1_speed_walker_0", "Hip Joint 1 Speed", lambda obs: obs[0][5]),
+    Sensor("knee_joint_1_angle_walker_0", "Knee Joint 1 Angle", lambda obs: obs[0][6]),
+    Sensor("knee_joint_1_speed_walker_0", "Knee Joint 1 Speed", lambda obs: obs[0][7]),
+    Sensor("leg_1_ground_contact_flag_walker_0", "Leg 1 Ground Contact Flag", lambda obs: obs[0][8]),
+    Sensor("hip_joint_2_angle_walker_0", "Hip Joint 2 Angle", lambda obs: obs[0][9]),
+    Sensor("hip_joint_2_speed_walker_0", "Hip Joint 2 Speed", lambda obs: obs[0][10]),
+    Sensor("knee_joint_2_angle_walker_0", "Knee Joint 2 Angle", lambda obs: obs[0][11]),
+    Sensor("knee_joint_2_speed_walker_0", "Knee Joint 2 Speed", lambda obs: obs[0][12]),
+    Sensor("leg_2_ground_contact_flag_walker_0", "Leg 2 Ground Contact Flag", lambda obs: obs[0][13]),
+    Sensor("lidar_sensor_readings_walker_0_0", "Lidar Sensor Readings", lambda obs: obs[0][14]),
+    Sensor("lidar_sensor_readings_walker_0_1", "Lidar Sensor Readings", lambda obs: obs[0][15]),
+    Sensor("lidar_sensor_readings_walker_0_2", "Lidar Sensor Readings", lambda obs: obs[0][16]),
+    Sensor("lidar_sensor_readings_walker_0_3", "Lidar Sensor Readings", lambda obs: obs[0][17]),
+    Sensor("lidar_sensor_readings_walker_0_4", "Lidar Sensor Readings", lambda obs: obs[0][18]),
+    Sensor("lidar_sensor_readings_walker_0_5", "Lidar Sensor Readings", lambda obs: obs[0][19]),
+    Sensor("lidar_sensor_readings_walker_0_6", "Lidar Sensor Readings", lambda obs: obs[0][20]),
+    Sensor("lidar_sensor_readings_walker_0_7", "Lidar Sensor Readings", lambda obs: obs[0][21]),
+    Sensor("lidar_sensor_readings_walker_0_8", "Lidar Sensor Readings", lambda obs: obs[0][22]),
+    Sensor("lidar_sensor_readings_walker_0_9", "Lidar Sensor Readings", lambda obs: obs[0][23]),
+    Sensor("left_neighbor_x_walker_0", "Left Neighbor X", lambda obs: obs[0][24]),
+    Sensor("left_neighbor_y_walker_0", "Left Neighbor Y", lambda obs: obs[0][25]),
+    Sensor("right_neighbor_x_walker_0", "Right Neighbor X", lambda obs: obs[0][26]),
+    Sensor("right_neighbor_y_walker_0", "Right Neighbor Y", lambda obs: obs[0][27]),
+    Sensor("walker_pos_x_rel_package_walker_0", "Walker X position relative to package", lambda obs: obs[0][28]),
+    Sensor("walker_pos_y_rel_package_walker_0", "Walker Y position relative to package", lambda obs: obs[0][29]),
+    Sensor("package angle_walker_0", "Package Angle", lambda obs: obs[0][30]),
+]
+
+sensors_walker_1 = [
+    Sensor("hull_angle_walker_1", "hull_angle", lambda obs: obs[1][0]),
+    Sensor("hull_angular_velocity_walker_1", "hull angular velocity", lambda obs: obs[1][1]),
+    Sensor("x_vel_walker_1", "X velocity_walker_1", lambda obs: obs[1][2]),
+    Sensor("y_vel_walker_1", "Y velocity_walker_1", lambda obs: obs[1][3]),
+    Sensor("hip_joint_1_angle_walker_1", "Hip Joint 1 Angle", lambda obs: obs[1][4]),
+    Sensor("hip_joint_1_speed_walker_1", "Hip Joint 1 Speed", lambda obs: obs[1][5]),
+    Sensor("knee_joint_1_angle_walker_1", "Knee Joint 1 Angle", lambda obs: obs[1][6]),
+    Sensor("knee_joint_1_speed_walker_1", "Knee Joint 1 Speed", lambda obs: obs[1][7]),
+    Sensor("leg_1_ground_contact_flag_walker_1", "Leg 1 Ground Contact Flag", lambda obs: obs[1][8]),
+    Sensor("hip_joint_2_angle_walker_1", "Hip Joint 2 Angle", lambda obs: obs[1][9]),
+    Sensor("hip_joint_2_speed_walker_1", "Hip Joint 2 Speed", lambda obs: obs[1][10]),
+    Sensor("knee_joint_2_angle_walker_1", "Knee Joint 2 Angle", lambda obs: obs[1][11]),
+    Sensor("knee_joint_2_speed_walker_1", "Knee Joint 2 Speed", lambda obs: obs[1][12]),
+    Sensor("leg_2_ground_contact_flag_walker_1", "Leg 2 Ground Contact Flag", lambda obs: obs[1][13]),
+    Sensor("lidar_sensor_readings_walker_1_0", "Lidar Sensor Readings", lambda obs: obs[1][14]),
+    Sensor("lidar_sensor_readings_walker_1_1", "Lidar Sensor Readings", lambda obs: obs[1][15]),
+    Sensor("lidar_sensor_readings_walker_1_2", "Lidar Sensor Readings", lambda obs: obs[1][16]),
+    Sensor("lidar_sensor_readings_walker_1_3", "Lidar Sensor Readings", lambda obs: obs[1][17]),
+    Sensor("lidar_sensor_readings_walker_1_4", "Lidar Sensor Readings", lambda obs: obs[1][18]),
+    Sensor("lidar_sensor_readings_walker_1_5", "Lidar Sensor Readings", lambda obs: obs[1][19]),
+    Sensor("lidar_sensor_readings_walker_1_6", "Lidar Sensor Readings", lambda obs: obs[1][20]),
+    Sensor("lidar_sensor_readings_walker_1_7", "Lidar Sensor Readings", lambda obs: obs[1][21]),
+    Sensor("lidar_sensor_readings_walker_1_8", "Lidar Sensor Readings", lambda obs: obs[1][22]),
+    Sensor("lidar_sensor_readings_walker_1_9", "Lidar Sensor Readings", lambda obs: obs[1][23]),
+    Sensor("left_neighbor_x_walker_1", "Left Neighbor X", lambda obs: obs[1][24]),
+    Sensor("left_neighbor_y_walker_1", "Left Neighbor Y", lambda obs: obs[1][25]),
+    Sensor("right_neighbor_x_walker_1", "Right Neighbor X", lambda obs: obs[1][26]),
+    Sensor("right_neighbor_y_walker_1", "Right Neighbor Y", lambda obs: obs[1][27]),
+    Sensor("walker_pos_x_rel_package_walker_1", "Walker X position relative to package", lambda obs: obs[1][28]),
+    Sensor("walker_pos_y_rel_package_walker_1", "Walker Y position relative to package", lambda obs: obs[1][29]),
+    Sensor("package angle_walker_1", "Package Angle", lambda obs: obs[1][30]),
+]
+
+sensors_walker_2 = [
+    Sensor("hull_angle_walker_2", "hull_angle", lambda obs: obs[2][0]),
+    Sensor("hull_angular_velocity_walker_2", "hull angular velocity", lambda obs: obs[2][1]),
+    Sensor("x_vel_walker_2", "X velocity_walker_2", lambda obs: obs[2][2]),
+    Sensor("y_vel_walker_2", "Y velocity_walker_2", lambda obs: obs[2][3]),
+    Sensor("hip_joint_1_angle_walker_2", "Hip Joint 1 Angle", lambda obs: obs[2][4]),
+    Sensor("hip_joint_1_speed_walker_2", "Hip Joint 1 Speed", lambda obs: obs[2][5]),
+    Sensor("knee_joint_1_angle_walker_2", "Knee Joint 1 Angle", lambda obs: obs[2][6]),
+    Sensor("knee_joint_1_speed_walker_2", "Knee Joint 1 Speed", lambda obs: obs[2][7]),
+    Sensor("leg_1_ground_contact_flag_walker_2", "Leg 1 Ground Contact Flag", lambda obs: obs[2][8]),
+    Sensor("hip_joint_2_angle_walker_2", "Hip Joint 2 Angle", lambda obs: obs[2][9]),
+    Sensor("hip_joint_2_speed_walker_2", "Hip Joint 2 Speed", lambda obs: obs[2][10]),
+    Sensor("knee_joint_2_angle_walker_2", "Knee Joint 2 Angle", lambda obs: obs[2][11]),
+    Sensor("knee_joint_2_speed_walker_2", "Knee Joint 2 Speed", lambda obs: obs[2][12]),
+    Sensor("leg_2_ground_contact_flag_walker_2", "Leg 2 Ground Contact Flag", lambda obs: obs[2][13]),
+    Sensor("lidar_sensor_readings_walker_2_0", "Lidar Sensor Readings", lambda obs: obs[2][14]),
+    Sensor("lidar_sensor_readings_walker_2_1", "Lidar Sensor Readings", lambda obs: obs[0][15]),
+    Sensor("lidar_sensor_readings_walker_2_2", "Lidar Sensor Readings", lambda obs: obs[0][16]),
+    Sensor("lidar_sensor_readings_walker_2_3", "Lidar Sensor Readings", lambda obs: obs[0][17]),
+    Sensor("lidar_sensor_readings_walker_2_4", "Lidar Sensor Readings", lambda obs: obs[0][18]),
+    Sensor("lidar_sensor_readings_walker_2_5", "Lidar Sensor Readings", lambda obs: obs[0][19]),
+    Sensor("lidar_sensor_readings_walker_2_6", "Lidar Sensor Readings", lambda obs: obs[0][20]),
+    Sensor("lidar_sensor_readings_walker_2_7", "Lidar Sensor Readings", lambda obs: obs[0][21]),
+    Sensor("lidar_sensor_readings_walker_2_8", "Lidar Sensor Readings", lambda obs: obs[0][22]),
+    Sensor("lidar_sensor_readings_walker_2_9", "Lidar Sensor Readings", lambda obs: obs[0][23]),
+    Sensor("left_neighbor_x_walker_2", "Left Neighbor X", lambda obs: obs[2][24]),
+    Sensor("left_neighbor_y_walker_2", "Left Neighbor Y", lambda obs: obs[2][25]),
+    Sensor("right_neighbor_x_walker_2", "Right Neighbor X", lambda obs: obs[2][26]),
+    Sensor("right_neighbor_y_walker_2", "Right Neighbor Y", lambda obs: obs[2][27]),
+    Sensor("walker_pos_x_rel_package_walker_2", "Walker X position relative to package", lambda obs: obs[2][28]),
+    Sensor("walker_pos_y_rel_package_walker_2", "Walker Y position relative to package", lambda obs: obs[2][29]),
+    Sensor("package angle_walker_2", "Package Angle", lambda obs: obs[2][30]),
+]
+
+sensors = sensors_walker_0 + sensors_walker_1 + sensors_walker_2
+
+def get_sensor_names(walker_idx):
+    if walker_idx == 0:
+        return [sensor.name for sensor in sensors_walker_0]
+    elif walker_idx == 1:
+        return [sensor.name for sensor in sensors_walker_1]
+    elif walker_idx == 2:
+        return [sensor.name for sensor in sensors_walker_2]
+    else:
+        []
