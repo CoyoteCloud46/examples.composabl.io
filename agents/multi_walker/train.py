@@ -15,15 +15,23 @@ async def start():
     config = {
         "license": license_key,
         "target": {
-            "local": {
-                "address": "localhost:1337",
-            }
+            "docker": {
+                "image": "composabl/sim-multi-walker"
+            },
         },
         "env": {
-            "name": "multi-walker",
+            "name": "sim-multi-walker",
         },
         "training": {
+            "train_batch_size": 5000,
+            "replay_buffer_size": 50000,
         },
+        "runtime": {
+            "num_gpus": 1,
+            "workers": 4,
+            "envs_per_worker": 4
+
+        }
     }
     runtime = Runtime(config)
     agent = Agent()

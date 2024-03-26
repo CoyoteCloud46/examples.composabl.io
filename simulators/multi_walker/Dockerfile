@@ -26,8 +26,11 @@ RUN apt-get update \
 ARG COMPOSABL_VERSION
 
 COPY requirements.txt ./
-RUN sed -i "s/composabl.*/composabl==${COMPOSABL_VERSION}/g" requirements.txt \
-    && pip install --no-cache-dir --upgrade pip \
+# RUN sed -i "s/composabl.*/composabl==${COMPOSABL_VERSION}/g" requirements.txt \
+#     && pip install --no-cache-dir --upgrade pip \
+#     && pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 ######################################################

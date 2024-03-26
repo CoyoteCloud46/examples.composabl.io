@@ -1,9 +1,9 @@
 import math
 
-from composabl_core.agent import Teacher
+from composabl_core.agent import SkillTeacher
 
 
-class StabilizeTeacher(Teacher):
+class StabilizeTeacher(SkillTeacher):
     def __init__(self):
         self.obs_history = None
         self.reward_history = []
@@ -12,7 +12,7 @@ class StabilizeTeacher(Teacher):
         self.error_tolerance = 0.01
         self.last_reward = 0
 
-    def compute_reward(self, transformed_obs, action, sim_reward):
+    async def compute_reward(self, transformed_obs, action, sim_reward):
         if self.obs_history is None:
             self.obs_history = [transformed_obs]
             return 0
@@ -36,33 +36,33 @@ class StabilizeTeacher(Teacher):
         self.last_reward = reward
         return reward
 
-    def compute_action_mask(self, transformed_obs, action):
+    async def compute_action_mask(self, transformed_obs, action):
         return None
 
-    def compute_success_criteria(self, transformed_obs, action):
+    async def compute_success_criteria(self, transformed_obs, action):
         return len(self.obs_history) > 250
 
-    def compute_termination(self, transformed_obs, action):
+    async def compute_termination(self, transformed_obs, action):
         return False
 
-    def transform_obs(self, obs, action):
+    async def transform_obs(self, obs, action):
         return obs
 
-    def transform_action(self, transformed_obs, action):
+    async def transform_action(self, transformed_obs, action):
         return action
 
-    def filtered_observation_space(self):
+    async def filtered_observation_space(self):
         return ["position_x", "position_y", "velocity_x", "velocity_y", "theta", "alpha"]
 
 
-class MoveToCenterTeacher(Teacher):
+class MoveToCenterTeacher(SkillTeacher):
     def __init__(self):
         self.obs_history = None
         self.width = 600
         self.scale = 30
         self.error_tolerance = 0.01
 
-    def compute_reward(self, transformed_obs, action, sim_reward):
+    async def compute_reward(self, transformed_obs, action, sim_reward):
         if self.obs_history is None:
             self.obs_history = [transformed_obs]
             return 0
@@ -93,33 +93,33 @@ class MoveToCenterTeacher(Teacher):
         self.obs_history.append(transformed_obs)
         return reward
 
-    def compute_action_mask(self, transformed_obs, action):
+    async def compute_action_mask(self, transformed_obs, action):
         return None
 
-    def compute_success_criteria(self, transformed_obs, action):
+    async def compute_success_criteria(self, transformed_obs, action):
         return len(self.obs_history) > 250
 
-    def compute_termination(self, transformed_obs, action):
+    async def compute_termination(self, transformed_obs, action):
         return False
 
-    def transform_obs(self, obs, action):
+    async def transform_obs(self, obs, action):
         return obs
 
-    def transform_action(self, transformed_obs, action):
+    async def transform_action(self, transformed_obs, action):
         return action
 
-    def filtered_observation_space(self):
+    async def filtered_observation_space(self):
         return ["position_x", "position_y", "velocity_x", "velocity_y", "theta", "alpha"]
 
 
-class LandTeacher(Teacher):
+class LandTeacher(SkillTeacher):
     def __init__(self):
         self.obs_history = None
         self.width = 600
         self.scale = 30
         self.error_tolerance = 0.01
 
-    def compute_reward(self, transformed_obs, action, sim_reward):
+    async def compute_reward(self, transformed_obs, action, sim_reward):
         if self.obs_history is None:
             self.obs_history = [transformed_obs]
             return 0
@@ -149,34 +149,34 @@ class LandTeacher(Teacher):
         self.obs_history.append(transformed_obs)
         return reward
 
-    def compute_action_mask(self, transformed_obs, action):
+    async def compute_action_mask(self, transformed_obs, action):
         return None
 
-    def compute_success_criteria(self, transformed_obs, action):
+    async def compute_success_criteria(self, transformed_obs, action):
         return len(self.obs_history) > 250
 
-    def compute_termination(self, transformed_obs, action):
+    async def compute_termination(self, transformed_obs, action):
         return False
 
-    def transform_obs(self, obs, action):
+    async def transform_obs(self, obs, action):
         return obs
 
-    def transform_action(self, transformed_obs, action):
+    async def transform_action(self, transformed_obs, action):
         return action
 
-    def filtered_observation_space(self):
+    async def filtered_observation_space(self):
         return ["position_x", "position_y", "velocity_x", "velocity_y", "theta", "alpha"]
 
 
 # sparse reward structure
-class SelectorTeacher(Teacher):
+class SelectorTeacher(SkillTeacher):
     def __init__(self):
         self.obs_history = None
         self.width = 600
         self.scale = 30
         self.error_tolerance = 0.01
 
-    def compute_reward(self, transformed_obs, action, sim_reward):
+    async def compute_reward(self, transformed_obs, action, sim_reward):
         if self.obs_history is None:
             self.obs_history = [transformed_obs]
             return 0
@@ -196,20 +196,20 @@ class SelectorTeacher(Teacher):
         self.obs_history.append(transformed_obs)
         return reward
 
-    def compute_action_mask(self, transformed_obs, action):
+    async def compute_action_mask(self, transformed_obs, action):
         return None
 
-    def compute_success_criteria(self, transformed_obs, action):
+    async def compute_success_criteria(self, transformed_obs, action):
         return len(self.obs_history) > 250
 
-    def compute_termination(self, transformed_obs, action):
+    async def compute_termination(self, transformed_obs, action):
         return False
 
-    def transform_obs(self, obs, action):
+    async def transform_obs(self, obs, action):
         return obs
 
-    def transform_action(self, transformed_obs, action):
+    async def transform_action(self, transformed_obs, action):
         return action
 
-    def filtered_observation_space(self):
+    async def filtered_observation_space(self):
         return ["position_x", "position_y", "velocity_x", "velocity_y", "theta", "alpha"]

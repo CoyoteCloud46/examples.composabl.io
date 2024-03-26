@@ -38,7 +38,9 @@ def start():
         },
         "runtime": {
             "ray": {
-                "workers": 1
+                "workers": 1,
+                "envs_per_worker": 5,
+                
             }
         }
     }

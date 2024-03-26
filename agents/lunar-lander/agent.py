@@ -1,3 +1,4 @@
+import asyncio
 import os
 
 from composabl import Agent, Runtime, Scenario, Sensor, Skill
@@ -7,7 +8,7 @@ from teacher import (LandTeacher, MoveToCenterTeacher, SelectorTeacher,
 license_key = os.environ["COMPOSABL_LICENSE"]
 
 
-def start():
+async def start():
     # Observation Space
     # The state is an 8-dimensional vector: the coordinates of the lander in `x` & `y`, its linear
     # velocities in `x` & `y`, its angle, its angular velocity, and two booleans
@@ -57,7 +58,7 @@ def start():
         },
     ]
 
-    stabilize_skill = Skill("stabilize", StabilizeTeacher, trainable=True)
+    stabilize_skill = Skill("stabilize", StabilizeTeacher)
     for scenario_dict in stabilize_scenarios:
         scenario = Scenario(scenario_dict)
         stabilize_skill.add_scenario(scenario)
@@ -95,7 +96,7 @@ def start():
         },
     ]
 
-    move_to_center_skill = Skill("move to center", MoveToCenterTeacher, trainable=True)
+    move_to_center_skill = Skill("move to center", MoveToCenterTeacher)
     for scenario_dict in move_to_center_scenarios:
         scenario = Scenario(scenario_dict)
         move_to_center_skill.add_scenario(scenario)
@@ -133,7 +134,7 @@ def start():
         },
     ]
 
-    land_skill = Skill("land", LandTeacher, trainable=True)
+    land_skill = Skill("land", LandTeacher)
     for scenario_dict in land_scenarios:
         scenario = Scenario(scenario_dict)
         land_skill.add_scenario(scenario)
@@ -171,7 +172,7 @@ def start():
         },
     ]
 
-    selector_skill = Skill("selector", SelectorTeacher, trainable=True)
+    selector_skill = Skill("selector", SelectorTeacher)
     for scenario_dict in selector_skill_scenarios:
         scenario = Scenario(scenario_dict)
         selector_skill.add_scenario(scenario)
@@ -186,18 +187,33 @@ def start():
         "env": {
             "name": "lunar-lander",
         },
-        "training": {}
+        "training": {},
+        "runtime": {
+            "num_gpus": 1,
+            "ray": {
+                "workers": 4,
+                "remote_worker_envs": True,
+                "envs_per_worker": 4
+            },
+            "train_batch_size": 5000,
+            "replay_buffer_size": 50000,
+        },
+        "training": {
+            "train_batch_size": 5000,
+            "replay_buffer_size": 50000,
+        },
     }
     runtime = Runtime(config)
     agent = Agent()
     agent.add_sensors(sensors)
 
     agent.add_skill(stabilize_skill)
-    agent.add_skill(move_to_center_skill)
-    agent.add_skill(land_skill)
-    agent.add_selector_skill(selector_skill, [stabilize_skill, move_to_center_skill, land_skill], fixed_order=True, repeat=False)
-    runtime.train(agent, train_iters=100)
+    # agent.add_skill(move_to_center_skill)
+    # agent.add_skill(land_skill)
+    # agent.add_selector_skill(selector_skill, [stabilize_skill, move_to_center_skill, land_skill], fixed_order=True, repeat=False)
+    await runtime.train(agent, train_iters=100)
 
 
 if __name__ == "__main__":
-    start()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(start())
