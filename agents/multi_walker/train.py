@@ -30,7 +30,6 @@ async def start():
             "num_gpus": 1,
             "workers": 4,
             "envs_per_worker": 4
-
         }
     }
     runtime = Runtime(config)
