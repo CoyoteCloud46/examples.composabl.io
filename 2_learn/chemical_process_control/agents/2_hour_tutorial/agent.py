@@ -17,7 +17,7 @@ DELETE_OLD_HISTORY_FILES: bool = True
 def run_agent():
     """Starting the agent."""
 
-    #copy this 2 times and past below. Update each skill with the right name, add the relevant Teacher and then the scenarios to complete.
+    #Copy this 2 times and past below. Update each skill with the right name, add the relevant Teacher and then the scenarios to complete.
     start_reaction_skill = Skill("start_reaction", StartReactionTeacher)
     for scenario_dict in start_reaction_scenarios:
         start_reaction_skill.add_scenario(Scenario(scenario_dict))
